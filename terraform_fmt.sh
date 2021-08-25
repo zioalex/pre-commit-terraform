@@ -1,4 +1,9 @@
-#!/usr/bin/env bash
+#!bash
+# ^^^ work in VSC
+
+#/bin/bash # Doesn't work in VSC
+#C:\\Windows\\System32\\bash.exe
+
 set -e
 
 declare -a paths
@@ -22,7 +27,7 @@ for path_uniq in $(echo "${paths[*]}" | tr ' ' '\n' | sort -u); do
   path_uniq="${path_uniq//__REPLACED__SPACE__/ }"
 
   pushd "$path_uniq" > /dev/null
-  terraform fmt
+  terraform.exe fmt
   popd > /dev/null
 done
 
